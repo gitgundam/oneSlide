@@ -1,0 +1,278 @@
+
+* {
+  box-sizing: border-box;
+}
+
+
+button {
+  background-color: #48484e;
+  padding: 6px 8px;
+  color: #d9dfdf;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  opacity: .7;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+
+.reveal.top-left section{
+  text-align: left;
+}
+
+.reveal.top-right section{
+  text-align: right;
+}
+/* 无论如何,第一页总是居中的 */
+.reveal .slides > section:first-child{
+  text-align: center;
+}
+
+
+
+
+/* Control */
+.control {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100px;
+  z-index: 1;
+  opacity: 0;
+  transition: all .1s;
+}
+
+.control .iconfont {
+  font-size: 40px;
+  color: white;
+  margin: 16px;
+  display: inline-block;
+  cursor: pointer;
+  text-shadow: 0px 1px 3px  black;
+}
+
+.control:hover {
+  opacity: 1;
+}
+
+
+/* Menu */
+.menu {
+  position: fixed;
+  left: 0;
+  background: #303030;
+  height: 100vh;
+  width: 180px; 
+  color: #757f7f;
+  font-size: 13px;
+  z-index: 100;
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+}
+
+.menu.open {
+  transform: translateX(0);
+}
+
+.menu .icon-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.menu .icon-close:hover {
+  color: white;
+}
+
+.menu .detail {
+  margin-top: 50px;
+}
+
+.menu .detail .tab {
+  display: flex;
+  align-items: center;
+  padding: 6px 40px;
+  cursor: pointer;
+}
+
+.menu .detail .tab.active {
+  color: #eff4f3;
+  background: #77777a;
+}
+
+.menu .detail .iconfont {
+  margin-right:5px;
+}
+
+.menu .editor .uploader{
+  margin-top: 10px;
+
+}
+
+
+.menu .editor .uploader label{
+  padding: 20px 0;
+  cursor: pointer;
+}
+
+
+[type=file]{
+  display: none;
+}
+/* 二级菜单内content的基本样式 */
+.menu .content {
+  position: absolute;
+  top: 0;
+  background: #20201f;
+  left: 180px;
+  height: 100vh;
+  width:calc(100vw - 180px);/*-号两边必须有空白字符*/
+  transform: translateX(calc(100% + 180px));
+  transition: transform .3s;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+/* 滚动条样式 */
+.menu .content::-webkit-scrollbar{ 
+  width:8px;
+  height: 8px;
+  background-color: #F5F5F5;
+} 
+.menu .content::-webkit-scrollbar-track{ 
+  background-color: #F5F5F5; 
+} 
+.menu .content::-webkit-scrollbar-thumb{ 
+  background-color: #555; 
+} 
+
+/*点击tab,展现出content时的样式 */
+.menu.open .content.active {
+  display: block;
+  transform: translateX(0);
+}
+
+.menu .content .header{
+  font-size: 40px;
+  padding: 20px;
+
+  box-shadow: 0px 4px 4px -2px black;
+}
+
+.menu .content .body {
+  padding:20px;
+}
+
+.menu .content textarea {
+  width: 100%;
+  height: 400px;
+  padding: 10px;
+  background: #0c0c0d;
+  color:#aaae;
+  border: none;
+  outline: none;
+  resize:none;
+}
+
+.menu .content button {
+  margin: 20px 0;
+}
+
+.menu .content h5{
+  padding: 20px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+/* 设置theme模块的样式 */
+.menu .themes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 20px;
+
+}
+.menu .themes figure{
+  text-align: center;
+  margin-top: 10px;
+  opacity: .7;
+  border: 4px solid transparent;
+  transform: all .3s;
+  cursor: pointer;
+}
+.menu .themes figure:hover{
+  opacity: 1;
+  border: 4px solid rgba(72, 132, 211);
+}
+
+.menu .themes figure.select{
+  opacity: 1;
+  border: 4px solid rgba(72, 132, 211);
+}
+
+.menu .themes figure figcaption{
+  font-size: 16px;;
+  line-height: 30px;
+}
+.menu .themes figure img {
+  width: 200px;
+  height: 150px;
+}
+
+.content .border {
+  border-bottom: 1px solid black;
+}
+/* 专场特效的板块效果 */
+.menu .transition {
+  margin: 0 0 50px 0 ;
+  display: flex;
+  justify-content: center;
+}
+
+.menu .transition .block{
+  display: flex;
+  width: 300px;
+  justify-content: space-around;
+}
+
+.transition .opition{
+  background: #2e2e2e;
+  text-align: center;
+  display: flex;
+  width: 17%;
+  height: 30px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+
+.transition .opition.select{
+  background-color: #77777a;
+  color:#eff4f3;
+  cursor: pointer;
+}
+
+.transition .opition:hover{
+  background-color: #77777a;
+  color:#eff4f3;
+  cursor: pointer;
+}
+
+.transition .opition:first-child{
+  border-radius: 8px 0 0 8px;
+}
+.transition .block .opition:last-child{
+  border-radius: 0 8px 8px 0;
+}
+
+.content .align{
+  margin: 20px;
+  width: 90px;
+}
