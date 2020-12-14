@@ -68,6 +68,7 @@ to {color: white;}
 }
 
  .tip{
+  text-shadow: black 1px 1px 3px;
   position: fixed;
   left: 60px;
   top: 28px;
