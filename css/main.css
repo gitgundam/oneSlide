@@ -61,6 +61,20 @@ button:hover {
   opacity: 1;
 }
 
+@keyframes mytip
+{
+from {  opacity: 1;}
+to {color: white;}
+}
+
+ .tip{
+  position: fixed;
+  left: 60px;
+  top: 28px;
+  color: white;
+  animation: mytip 8s linear;
+  opacity: 0;
+}
 
 /* Menu */
 .menu {
